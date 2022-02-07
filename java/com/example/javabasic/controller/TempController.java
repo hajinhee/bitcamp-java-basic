@@ -1,9 +1,5 @@
 package com.example.javabasic.controller;
 
-import com.example.javabasic.DTO.AlgoDTO;
-
-import java.util.Scanner;
-
 /**
  * packageName: com.example.javabasic.controller
  * fileName   : TempController
