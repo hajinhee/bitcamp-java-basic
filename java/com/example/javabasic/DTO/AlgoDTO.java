@@ -13,7 +13,7 @@ package com.example.javabasic.DTO;
  */
 public class AlgoDTO {
     private String name;
-    private int subject1;
+    private String subject1;
     private String subject2;
     private String subject3;
 
@@ -25,11 +25,11 @@ public class AlgoDTO {
         this.name = name;
     }
 
-    public int getSubject1(){
+    public String getSubject1(){
         return subject1;
     }
 
-    public void setSubject1(int subject1){
+    public void setSubject1(String subject1){
         this.subject1 = subject1;
     }
 
