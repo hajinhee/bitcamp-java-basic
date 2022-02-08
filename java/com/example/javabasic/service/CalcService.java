@@ -1,8 +1,6 @@
 package com.example.javabasic.service;
 
-import com.example.javabasic.DTO.CalcDTO;
-
-import java.util.Scanner;
+import com.example.javabasic.auth.domain.CalcDTO;
 
 public class CalcService {
     public String execute(CalcDTO calc){

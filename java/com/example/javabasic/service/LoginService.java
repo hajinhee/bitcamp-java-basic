@@ -1,8 +1,6 @@
 package com.example.javabasic.service;
 
-import com.example.javabasic.DTO.LoginDTO;
-
-import java.util.Scanner;
+import com.example.javabasic.auth.domain.LoginDTO;
 
 public class LoginService {
     public String execute(LoginDTO login) {

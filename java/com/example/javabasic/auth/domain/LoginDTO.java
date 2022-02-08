@@ -1,4 +1,4 @@
-package com.example.javabasic.DTO;
+package com.example.javabasic.auth.domain;
 
 public class LoginDTO {
     public static String TITLE = "NAVER";

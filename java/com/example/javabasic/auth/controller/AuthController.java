@@ -1,6 +1,6 @@
-package com.example.javabasic.controller;
+package com.example.javabasic.auth.controller;
 
-import com.example.javabasic.DTO.*;
+import com.example.javabasic.auth.domain.*;
 import com.example.javabasic.service.*;
 
 import java.util.Scanner;
@@ -16,9 +16,8 @@ import java.util.Scanner;
  * ================================
  * 2022-01-30   HAJINHEE    최초 생성
  */
-public class Controller {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class AuthController {
+    public void execute(Scanner scanner) {
         CalcDTO calc = new CalcDTO();
         BmiDTO bmi = new BmiDTO();
         GoogleDTO google = new GoogleDTO();

@@ -1,4 +1,4 @@
-package com.example.javabasic.controller;
+package com.example.javabasic.quiz.service;
 
 /**
  * packageName: com.example.javabasic.controller
@@ -11,14 +11,10 @@ package com.example.javabasic.controller;
  * ================================
  * 2022-02-03   HAJINHEE    최초 생성
  */
-public class TempController {
-    public static void main(String[] args) {
-        String[] arr = {"김지혜",   "최은아",   "권솔이",    "심민혜",    "하진희",
-                         "BFS",   "Stack",    "Heep",     "Hash",    "Greedy",
-                         "DFS",   "Queue", "Brute Force",  "DP",  "Binary Search",
-                        "Sort",   "Graph",   "",  "",  ""};
+public class Feb06ServiceImpl implements Feb06Service{
 
-
+    @Override
+    public void quiz1(String[] arr) {
         System.out.println("Q1. 팀별 과제를 출력하세요 ");
         String sub = "";
         for(int i=0; i<arr.length; i++){
@@ -28,20 +24,24 @@ public class TempController {
             sub += i+ ". " +arr[i]+ "\t";
         }
         System.out.println(sub);
+    }
 
-
+    @Override
+    public void quiz2(String[] arr) {
         System.out.println("Q2. 팀장이 맡은 과제만 출력하세요. 예) 김진영, 힙, 그래프 ");
         String leader = "";
         String l = "하진희";
         for(int i=0; i<arr.length; i++){
             if(arr[i].equals(l)){
-            for(int j=0; j<4; j++){
-                leader += arr[i+j*5]+ ",";
-            }
-        }if(i==16){break;}
+                for(int j=0; j<4; j++){
+                    leader += arr[i+j*5]+ ",";
+                }
+            }if(i==16){break;}
         }System.out.println(leader);
+    }
 
-
+    @Override
+    public void quiz3(String[] arr) {
         System.out.println("Q3. 큐를 담당한 사람을 출력하세요. 예) 큐를 담당한 사람: 권혜민 ");
         String qManager = "";
         String subject = "";
@@ -52,6 +52,27 @@ public class TempController {
         }
         System.out.println(qManager);
 
+    }
 
+    @Override
+    public void quiz4(String[] arr) {
+        System.out.println("Q4. 팀원별 과제 수를 출력하세요. 예) 김지혜(3개), 최은아(3개), 심민혜(2개), 권솔이(2개), 하진희(2개)");
+        int[] count = new int[5];
+        String s = "";
+        for (int i = 5; i < arr.length; i++) {
+            int a = i % 5;
+            for (int j = 0; j < 5; j++) {
+                if (a == j) {
+                    count[j]++;
+                }
+            }
+        }
+        for (int i = 0; i < count.length; i++) {
+            s += arr[i] + "(" + count[i] + "개)";
+            if (i < 4) {
+                s += ", ";
+            }
+        }
+        System.out.println(s);
     }
 }

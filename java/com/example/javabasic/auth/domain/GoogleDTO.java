@@ -1,4 +1,4 @@
-package com.example.javabasic.DTO;
+package com.example.javabasic.auth.domain;
 
 /**
  * packageName: com.example.javabasic

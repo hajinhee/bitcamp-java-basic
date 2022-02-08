@@ -1,6 +1,6 @@
 package com.example.javabasic.service;
 
-import com.example.javabasic.DTO.BmiDTO;
+import com.example.javabasic.auth.domain.BmiDTO;
 
 /**
  * packageName: com.example.javabasic

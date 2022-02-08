@@ -1,10 +1,10 @@
-package com.example.javabasic.service;
+package com.example.javabasic.quiz.service;
 
 import java.util.Scanner;
 
 /**
- * packageName: com.example.javabasic.service
- * fileName   : GameService
+ * packageName: com.example.javabasic.quiz.service
+ * fileName   : Feb07Service
  * author     : HAJINHEE
  * date       : 2022-02-08
  * desc       :
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * ================================
  * 2022-02-08   HAJINHEE    최초 생성
  */
-public interface GameService {
+public interface Feb07Service {
     void dice(Scanner scanner);
     void rsp(Scanner scanner);
     void getPrime(Scanner scanner);

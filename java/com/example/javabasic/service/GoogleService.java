@@ -1,6 +1,6 @@
 package com.example.javabasic.service;
 
-import com.example.javabasic.DTO.GoogleDTO;
+import com.example.javabasic.auth.domain.GoogleDTO;
 
 /**
  * packageName: com.example.javabasic

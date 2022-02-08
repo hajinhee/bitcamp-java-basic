@@ -1,4 +1,4 @@
-package com.example.javabasic.DTO;
+package com.example.javabasic.auth.domain;
 
 public class CalcDTO {
     public static String TITLE = "Calc.com";
