@@ -1,5 +1,10 @@
 package com.example.javabasic.oop.service;
 
+import com.example.javabasic.oop.domain.CelPhone;
+import com.example.javabasic.oop.domain.GalPhone;
+import com.example.javabasic.oop.domain.IPhone;
+import com.example.javabasic.oop.domain.Phone;
+
 import java.util.Scanner;
 
 /**
@@ -15,22 +20,22 @@ import java.util.Scanner;
  */
 public class PhoneServiceImpl implements PhoneService{
     @Override
-    public void usePhone(Scanner scanner) {
-
+    public void usePhone(Phone phone) {
+        System.out.println(phone.toString());
     }
 
     @Override
-    public void useCelPhone(Scanner scanner) {
-
+    public void useCelPhone(CelPhone celPhone) {
+        System.out.println(celPhone.toString());
     }
 
     @Override
-    public void useIPhone(Scanner scanner) {
-
+    public void useIPhone(IPhone iPhone) {
+        System.out.println(iPhone.toString());
     }
 
     @Override
-    public void useGalPhone(Scanner scanner) {
-
+    public void useGalPhone(GalPhone galPhone) {
+        System.out.println(galPhone.toString());
     }
 }

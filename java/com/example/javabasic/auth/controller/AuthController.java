@@ -1,7 +1,8 @@
 package com.example.javabasic.auth.controller;
 
 import com.example.javabasic.auth.domain.*;
-import com.example.javabasic.service.*;
+import com.example.javabasic.auth.service.MemberService;
+import com.example.javabasic.auth.service.MemberServiceImpl;
 
 import java.util.Scanner;
 
@@ -18,53 +19,55 @@ import java.util.Scanner;
  */
 public class AuthController {
     public void execute(Scanner scanner) {
+        MemberService service = new MemberServiceImpl();
         CalcDTO calc = new CalcDTO();
-        BmiDTO bmi = new BmiDTO();
         GoogleDTO google = new GoogleDTO();
-        HelloDTO hello = new HelloDTO();
-        LoginDTO login = new LoginDTO();
-        CalcService calcService = new CalcService();
-        BmiService bmiService = new BmiService();
-        GoogleService googleService = new GoogleService();
-        HelloService helloService = new HelloService();
-        LoginService loginService = new LoginService();
 
         while (true){
             System.out.println("메뉴");
-            System.out.println("0.EXIT 1.CALC 2.BMI 3.GOOGLE 4.HELLO 5.LOGIN");
+            System.out.println("0.Exit 1.BMI 2.CALC 3.GOOGLE 4.GRADE 5.LOGIN");
             String res = "";
 
             switch (scanner.next()){
                 case "0" :
                     System.out.println("Goodbye"); return;
                 case "1" :
-                    System.out.println(CalcDTO.TITLE+"\n첫번째숫자, 연산자, 두번째숫자 입력하세요.");
+                    System.out.println((BmiDTO.TITLE + "\n이름, 키, 몸무게 입력"));
+                    BmiDTO bmi = BmiDTO.getInstance();
+                    bmi.setName(scanner.next());
+                    bmi.setHeight(scanner.nextInt());
+                    bmi.setWeight(scanner.nextInt());
+                    res = service.getBmi(bmi);  break;
+                case "2" :
+                    System.out.println(CalcDTO.TITLE + "\n숫자1, 연산자, 숫자2 입력");
                     calc.setNum1(scanner.nextInt());
                     calc.setOpcode(scanner.next());
                     calc.setNum2(scanner.nextInt());
-                    res = calcService.execute(calc); break;
-                case "2" :
-                    System.out.println(BmiDTO.TITLE+"\n이름, 키, 몸무게를 입력하세요.");
-                    bmi.setName(scanner.next());
-                    bmi.setHeight(scanner.nextDouble());
-                    bmi.setWeight(scanner.nextDouble());
-                    res = bmiService.execute(bmi); break;
+                    res = service.calc(calc); break;
                 case "3" :
-                    System.out.println(GoogleDTO.TTILE+"\n검색어를 입력하세요.");
+                    System.out.println(GoogleDTO.TITLE + "\n검색어 입력");
                     google.setSearch(scanner.next());
-                    res = googleService.execute(google); break;
+                    res = service.search(google); break;
                 case "4" :
-                    System.out.println(HelloDTO.TITLE+"\n이름과 아이디, 패스워드를 입력하세요.");
-                    hello.setName(scanner.next());
-                    hello.setId(scanner.next());
-                    hello.setPw(scanner.nextInt());
-                    res = helloService.execute(hello); break;
+                    System.out.println("총 학생수 입력");
+                    GradeDTO[] grades = new GradeDTO[scanner.nextInt()];
+                    for (int i = 0; i < grades.length; i++) {
+                        System.out.println(i + "번 이름, 국어점수, 영어점수, 수학점수 입력");
+                        grades[i] = GradeDTO.getInstance();
+                        grades[i].setName(scanner.next());
+                        grades[i].setKor(scanner.nextInt());
+                        grades[i].setEng(scanner.nextInt());
+                        grades[i].setMath(scanner.nextInt());
+                    }
+                    break;
                 case "5" :
-                    System.out.println(LoginDTO.TITLE+"\n아이디, 패스워드, 이름을 입력하세요.");
-                    login.setId(scanner.next());
-                    login.setPw(scanner.next());
-                    login.setName(scanner.next());
-                    res = loginService.execute(login); break;
+                    System.out.println(UserDTO.TITLE + "\n아이디, 비밀번호, 이름 입력");
+                    UserDTO user = UserDTO.getInstance();
+                    user.setId(scanner.next());
+                    user.setPw(scanner.next());
+                    user.setName(scanner.next());
+                    res = service.login(user);
+                    break;
                 default:
                     res = "Error"; break;
             }

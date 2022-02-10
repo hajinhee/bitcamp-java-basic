@@ -17,6 +17,10 @@ public class BmiDTO {
     private double height;
     private double weight;
 
+    private final static BmiDTO bmi = new BmiDTO();
+    private BmiDTO(){}
+    public static BmiDTO getInstance(){return bmi;}
+
     public String getName(){
         return name;
     }

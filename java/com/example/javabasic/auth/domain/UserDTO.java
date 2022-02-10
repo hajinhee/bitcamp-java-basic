@@ -1,10 +1,15 @@
 package com.example.javabasic.auth.domain;
 
-public class LoginDTO {
+public class UserDTO {
     public static String TITLE = "NAVER";
     private String id;
     private String pw;
     private String name;
+
+    private final static UserDTO user = new UserDTO();
+    private UserDTO(){}
+    public static UserDTO getInstance(){return user;}
+
 
     public String getId(){
         return id;

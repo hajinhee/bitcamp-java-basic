@@ -23,13 +23,15 @@ public class Feb08ServiceImpl implements Feb08Service{
 
         System.out.println("1~45까지의 숫자 6개를 입력하세요.");
         for (int i=0; i<userNumbers.length; i++) {
-            userNumbers[i] = scanner.nextInt();
+           userNumbers[i] = scanner.nextInt();
         }
+
         System.out.println("추첨번호");
         for (int i=0; i<comNumbers.length; i++) {
             comNumbers[i] = (int)(Math.random()*45)+1;
             System.out.print("[" +comNumbers[i]+ "] ");
-        }
+            }
+
         for (int i=0; i<6; i++) {
             for (int j=0; j<6; j++) {
                 if (comNumbers[i]==userNumbers[j]) {

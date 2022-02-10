@@ -14,8 +14,9 @@ import com.example.javabasic.auth.domain.*;
  * 2022-02-08   HAJINHEE    최초 생성
  */
 public class MemberServiceImpl implements MemberService{
+
     @Override
-    public String execute(CalcDTO calc) {
+    public String calc(CalcDTO calc) {
         int res = 0;
         switch (calc.getOpcode()) {
             case "+":
@@ -36,9 +37,9 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public String execute(BmiDTO param) {
+    public String getBmi(BmiDTO paramBmi) {
         String res;
-        double bmi = param.getWeight() / (param.getHeight() * param.getHeight()) * 10000;
+        double bmi = paramBmi.getWeight() / (paramBmi.getHeight() * paramBmi.getHeight()) * 10000;
         if (bmi >= 35) {
             res = "고도비만";
         } else if (bmi >= 30) {
@@ -52,22 +53,35 @@ public class MemberServiceImpl implements MemberService{
         } else {
             res = "저체중";
         }
-        return String.format("%s님의 키: %.2f 몸무게: %.2f, bmi 지수는 %s입니다.", param.getName(), param.getHeight(), param.getWeight(), res);
-    }
+        return String.format("%s님의 키: %.2f 몸무게: %.2f, bmi 지수는 %s입니다.",
+                paramBmi.getName(), paramBmi.getHeight(), paramBmi.getWeight(), res);    }
 
     @Override
-    public String execute(GoogleDTO google) {
+    public String search(GoogleDTO google) {
         return String.format("%s을(를) 검색한 결과입니다.", google.getSearch());
     }
 
     @Override
-    public String execute(HelloDTO hello) {
-        return (hello.getPw()==123) ? String.format("%s님 패스워드 %s가 맞습니다. 로그인 성공",
-                hello.getName(), hello.getPw()) : String.format("아이디 %s는 맞지만 패스워드 %s가 틀립니다. 로그인 실패",
-                hello.getId(), hello.getPw());    }
+    public String getGrade(GradeDTO grade) {
+        int total = grade.getKor() + grade.getEng() + grade.getMath();
+        int avg = total / 3;
+        String pass = (avg >= 60) ? "합격" : "불합격";
+        return String.format("* ########## %s ########\n" +
+                        " * 이름: %s\n" +
+                        " * > 국어: %d점 \n" +
+                        " * > 영어: %d점 \n" +
+                        " * > 수학: %d점\n" +
+                        " * 총점: %d점 \n" +
+                        " * 평균(정수): %d점\n" +
+                        " * 합격여부: %s\n" +
+                        " * #######################", GradeDTO.GRADE_TITLE, grade.getName(), grade.getKor(),
+                grade.getEng(), grade.getMath(), total, avg, pass);
+    }
 
     @Override
-    public String execute(LoginDTO login) {
-        return String.format("아이디 %s님 환영합니다.", login.getId());
+    public String login(UserDTO login) {
+        return (login.getPw().equals("abc")) ? String.format("%s님의 비번 %s가 맞습니다. 로그인 성공", login.getName(), login.getPw())
+                : String.format("아이디 %s는 맞고 비번 %s가 틀립니다. 로그인 실패", login.getId(), login.getPw());
+
     }
-    }
+}

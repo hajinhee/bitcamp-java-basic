@@ -14,9 +14,9 @@ import com.example.javabasic.auth.domain.*;
  * 2022-02-08   HAJINHEE    최초 생성
  */
 public interface MemberService {
-    String execute(CalcDTO calc);
-    String execute(BmiDTO bmi);
-    String execute(GoogleDTO google);
-    String execute(HelloDTO hello);
-    String execute(LoginDTO login);
+    String calc(CalcDTO calc);
+    String getBmi(BmiDTO bmi);
+    String search(GoogleDTO google);
+    String getGrade(GradeDTO grade);
+    String login(UserDTO login);
 }

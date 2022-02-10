@@ -2,16 +2,14 @@ package com.example.javabasic.algorithm.service;
 
 /**
  * packageName: com.example.javabasic.algorithm.service
- * fileName   : BinService
+ * fileName   : SortServiceImpl
  * author     : HAJINHEE
- * date       : 2022-02-08
+ * date       : 2022-02-10
  * desc       :
  * ================================
  * DATE       AUTHOR       NOTE
  * ================================
- * 2022-02-08   HAJINHEE    최초 생성
+ * 2022-02-10   HAJINHEE    최초 생성
  */
-public interface BinService {
-    long immigration(int n, int[] times);
-    int stepStones(int distance, int[] rocks, int n);
+public class SortServiceImpl {
 }

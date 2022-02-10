@@ -12,7 +12,7 @@ package com.example.javabasic.auth.domain;
  * 2022-01-30   HAJINHEE    최초 생성
  */
 public class GoogleDTO {
-    public static String TTILE = "Google";
+    public static String TITLE = "Google";
     private String search;
 
     public String getSearch(){

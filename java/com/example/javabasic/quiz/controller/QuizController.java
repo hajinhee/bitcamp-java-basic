@@ -20,13 +20,14 @@ public class QuizController {
         Feb06Service feb06Service = new Feb06ServiceImpl();
         Feb07Service feb07Service = new Feb07ServiceImpl();
         Feb08Service feb08Service = new Feb08ServiceImpl();
+        Feb10Service feb10Service = new Feb10ServiceImpl();
         while (true) {
             System.out.println("\n[서브메뉴]\n" +
-                    "0. Exit\n" +
-                    "1. 2월 6일\n" +
-                    "2. 2월 7일\n" +
-                    "3. 2월 8일\n" +
-                    "4. 2월 9일");
+                    "0.Exit\n" +
+                    "1.2월 6일\n" +
+                    "2.2월 7일\n" +
+                    "3.2월 8일\n" +
+                    "4.2월 10일\n");
             switch (scanner.next()) {
                 case "0":
                     System.out.println("Exit");
@@ -121,12 +122,51 @@ public class QuizController {
                             break;
                         case "2":
                             System.out.println("2.야구");
+                            feb08Service.baseball(scanner);
                             break;
                         case "3":
                             System.out.println("3.좌석예약");
+                            feb08Service.booking(scanner);
                             break;
                         case "4":
                             System.out.println("4.은행입출금");
+                            feb08Service.bank(scanner);
+                            break;
+                        case "5":
+                            System.out.println("5.구구단");
+                            feb08Service.gugudan(scanner);
+                            break;
+                        default:
+                            System.out.println("Wrong Number");
+                            break;
+                    }
+                    break;
+                case "4" :
+                    System.out.println("\n[소메뉴] \n" +
+                            "0.종료 \n" +
+                            "1.bubble sort \n" +
+                            "2.insertionSort \n" +
+                            "3.selectionSort \n" +
+                            "4.quickSort \n" +
+                            "5.mergeSort \n");
+                    switch (scanner.next()){
+                        case "0":
+                            System.out.println("0.Exit");
+                            return;
+                        case "1":
+                            System.out.println("1.bubble sort\n");
+                            feb10Service.bubbleSort();
+                            break;
+                        case "2":
+                            System.out.println("2.insertionSort\n");
+                            feb10Service.insertionSort();
+                            break;
+                        case "3":
+                            System.out.println("3.selectionSort\n");
+                            feb10Service.selectionSort();
+                            break;
+                        case "4":
+                            System.out.println("4.");
 
                             break;
                         case "5":
@@ -136,11 +176,7 @@ public class QuizController {
                             System.out.println("Wrong Number");
                             break;
                     }
-                    break;
-                case "4":
-                    break;
-                default:
-                    System.out.println("Wrong Number");
+
                     break;
             }
         }
