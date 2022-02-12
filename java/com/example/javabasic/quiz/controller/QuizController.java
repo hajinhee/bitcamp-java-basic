@@ -105,7 +105,7 @@ public class QuizController {
                             break;
                     }break;
                 case "3":
-                    System.out.println("\n[소메뉴] \n" +
+                    System.out.println("\n[소메뉴]\n" +
                             "0.종료 \n" +
                             "1.로또 \n" +
                             "2.야구 \n" +
