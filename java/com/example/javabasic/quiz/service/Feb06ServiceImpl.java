@@ -57,22 +57,23 @@ public class Feb06ServiceImpl implements Feb06Service{
     @Override
     public void quiz4(String[] arr) {
         System.out.println("Q4. 팀원별 과제 수를 출력하세요. 예) 김지혜(3개), 최은아(3개), 심민혜(2개), 권솔이(2개), 하진희(2개)");
-        int[] count = new int[5];
+        int[] array = new int[5];
         String s = "";
         for (int i = 5; i < arr.length; i++) {
             int a = i % 5;
             for (int j = 0; j < 5; j++) {
                 if (a == j) {
-                    count[j]++;
+                    array[j]++;
                 }
             }
         }
-        for (int i = 0; i < count.length; i++) {
-            s += arr[i] + "(" + count[i] + "개)";
+        for (int i = 0; i < arr.length; i++) {
+            s += arr[i] + "(" + array[i] + "개)";
             if (i < 4) {
                 s += ", ";
             }
         }
         System.out.println(s);
     }
+
 }

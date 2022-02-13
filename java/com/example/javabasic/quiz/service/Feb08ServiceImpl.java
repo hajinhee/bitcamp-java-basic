@@ -23,7 +23,7 @@ public class Feb08ServiceImpl implements Feb08Service{
 
         System.out.println("1~45까지의 숫자 6개를 입력하세요.");
         for (int i=0; i<userNumbers.length; i++) {
-           userNumbers[i] = scanner.nextInt();                //스캐너로 사용자 선택 번호 6개 입력 받기
+           userNumbers[i] = scanner.nextInt();   //스캐너로 사용자 선택 번호 6개 입력 받기
         }
         System.out.println("내가 선택한 번호");
         for (int i=0; i<userNumbers.length; i++){
@@ -31,15 +31,15 @@ public class Feb08ServiceImpl implements Feb08Service{
         }
 
         System.out.println("\n추첨번호");
-        for (int i=0; i<comNumbers.length; i++) {            //랜덤함수 이용하여 1~45까지의 정수 중 6개 뽑기
+        for (int i=0; i<comNumbers.length; i++) {   //랜덤함수 이용하여 1~45까지의 정수 중 6개 뽑기
             comNumbers[i] = (int)(Math.random()*45)+1;
-            for (int j=0; j<i; j++){                         //뽑은 6개 숫자 중 중복 숫자 제거
+            for (int j=0; j<i; j++){               //뽑은 6개 숫자 중 중복 숫자 제거
                 if (comNumbers[i]==comNumbers[j]){
                     i--; break;
                 }
             }
         }
-        for (int i=0; i< comNumbers.length-1; i++){          //랜덤으로 뽑힌 숫자 오름차순으로 정렬
+        for (int i=0; i< comNumbers.length-1; i++){   //랜덤으로 뽑힌 숫자 오름차순으로 정렬
             for (int j=i+1; j< comNumbers.length; j++){
                 if (comNumbers[i]>comNumbers[j]){
                     int temp = comNumbers[i];
@@ -52,7 +52,7 @@ public class Feb08ServiceImpl implements Feb08Service{
             System.out.print("[" +comNumbers[i]+ "] ");
         }
 
-        for (int i=0; i<6; i++) {
+        for (int i=0; i<6; i++) {         //내가 입력한 숫자와 컴퓨터가 랜덤으로 뽑은 숫자가 일치하면 count++
             for (int j=0; j<6; j++) {
                 if (comNumbers[i]==userNumbers[j]) {
                     count++;

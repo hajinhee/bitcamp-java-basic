@@ -145,10 +145,10 @@ public class QuizController {
                     System.out.println("\n[소메뉴] \n" +
                             "0.종료 \n" +
                             "1.bubble sort \n" +
-                            "2.insertionSort \n" +
-                            "3.selectionSort \n" +
-                            "4.quickSort \n" +
-                            "5.mergeSort \n");
+                            "2.insertion sort \n" +
+                            "3.selection sort \n" +
+                            "4.quick sort \n" +
+                            "5.merge sort \n");
                     switch (scanner.next()){
                         case "0":
                             System.out.println("0.Exit");
@@ -158,19 +158,18 @@ public class QuizController {
                             feb10Service.bubbleSort();
                             break;
                         case "2":
-                            System.out.println("2.insertionSort\n");
+                            System.out.println("2.insertion sort\n");
                             feb10Service.insertionSort();
                             break;
                         case "3":
-                            System.out.println("3.selectionSort\n");
+                            System.out.println("3.selection sort\n");
                             feb10Service.selectionSort();
                             break;
                         case "4":
                             System.out.println("4.");
-
                             break;
                         case "5":
-                            System.out.println("5.구구단");
+                            System.out.println("5.");
                             break;
                         default:
                             System.out.println("Wrong Number");
