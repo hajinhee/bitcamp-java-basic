@@ -30,7 +30,7 @@ public class AuthController {
 
             switch (scanner.next()){
                 case "0" :
-                    System.out.println("Goodbye"); return;
+                    System.out.println("Exit"); return;
                 case "1" :
                     System.out.println((BmiDTO.TITLE + "\n이름, 키, 몸무게 입력"));
                     BmiDTO bmi = BmiDTO.getInstance();

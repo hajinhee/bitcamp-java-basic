@@ -19,11 +19,10 @@ public class Feb06ServiceImpl implements Feb06Service{
         String sub = "";
         for(int i=0; i<arr.length; i++){
             if(i%5==0){
-                sub += "\n";
+                System.out.print("\n");
             }
-            sub += i+ ". " +arr[i]+ "\t";
+            System.out.print(i+ ". " +arr[i]+ "\t");
         }
-        System.out.println(sub);
     }
 
     @Override
@@ -33,7 +32,7 @@ public class Feb06ServiceImpl implements Feb06Service{
         String l = "하진희";
         for(int i=0; i<arr.length; i++){
             if(arr[i].equals(l)){
-                for(int j=0; j<4; j++){
+                for(int j=0; j<3; j++){
                     leader += arr[i+j*5]+ ",";
                 }
             }if(i==16){break;}
@@ -57,8 +56,8 @@ public class Feb06ServiceImpl implements Feb06Service{
     @Override
     public void quiz4(String[] arr) {
         System.out.println("Q4. 팀원별 과제 수를 출력하세요. 예) 김지혜(3개), 최은아(3개), 심민혜(2개), 권솔이(2개), 하진희(2개)");
-        int[] array = new int[5];
-        String s = "";
+        int[] array = new int[5];  //과목 수가 들어갈 공간 만들기
+        String res = "";
         for (int i = 5; i < arr.length; i++) {
             int a = i % 5;
             for (int j = 0; j < 5; j++) {
@@ -68,12 +67,12 @@ public class Feb06ServiceImpl implements Feb06Service{
             }
         }
         for (int i = 0; i < arr.length; i++) {
-            s += arr[i] + "(" + array[i] + "개)";
+            res += arr[i] + "(" + array[i] + "개)";
             if (i < 4) {
-                s += ", ";
+                res += ", ";
             }
         }
-        System.out.println(s);
+        System.out.println(res);
     }
 
 }

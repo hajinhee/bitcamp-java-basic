@@ -39,12 +39,12 @@ public class Feb08ServiceImpl implements Feb08Service{
                 }
             }
         }
-        for (int i=0; i< comNumbers.length-1; i++){   //랜덤으로 뽑힌 숫자 오름차순으로 정렬
-            for (int j=i+1; j< comNumbers.length; j++){
-                if (comNumbers[i]>comNumbers[j]){
-                    int temp = comNumbers[i];
-                    comNumbers[i] = comNumbers[j];
-                    comNumbers[j] = temp;
+        for (int i=0; i< comNumbers.length; i++){    //랜덤으로 뽑힌 숫자 오름차순으로 정렬(bubble sort)
+            for (int j=0; j<comNumbers.length-1; j++){
+                if (comNumbers[j]>comNumbers[j+1]){
+                    int temp = comNumbers[j];
+                    comNumbers[j] = comNumbers[j+1];
+                    comNumbers[j+1] = temp;
                 }
             }
         }

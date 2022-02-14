@@ -39,10 +39,10 @@ public class Feb07ServiceImpl implements Feb07Service{
     }
     @Override
     public void rsp(Scanner scanner) {
-        int com = (int) (Math.random()*3)+1;
-        int user = scanner.nextInt();
-        int score = user-com;
-        String[] str = { "", "주먹", "가위", "보"};
+        int com = (int) (Math.random()*3)+1;    //랜덤함수 이용하여 1~3까지 랜덤 정수 뽑기
+        int user = scanner.nextInt();   //사용자에게 1~3까지 숫자 입력 받기
+        int score = user-com; //같은 숫자를 내면 0으로 무승부, 사용자가 낸 수가 컴퓨터가 낸 수보다 -1이거나 2면 사용자 승, 그 외 패배
+        String[] str = { "", "주먹", "가위", "보"}; //주먹=1, 가위=2, 보=3
         String res = "";
 
         if(user==0 || user>3){
