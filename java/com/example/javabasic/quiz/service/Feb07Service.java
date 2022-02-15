@@ -14,8 +14,9 @@ import java.util.Scanner;
  * 2022-02-08   HAJINHEE    최초 생성
  */
 public interface Feb07Service {
-    void dice(Scanner scanner);
-    void rsp(Scanner scanner);
+    void dice();
+    void diceRandom();
+    void rsp();
     void getPrime(Scanner scanner);
     void leapYear(Scanner scanner);
     void numberGolf(Scanner scanner);

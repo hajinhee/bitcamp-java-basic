@@ -70,34 +70,39 @@ public class QuizController {
                     break;
                 case "2":
                     System.out.println("\n[소메뉴] \n" +
-                            "0. 종료 \n" +
-                            "1. 주사위 \n" +
-                            "2. 가위바위보 \n" +
-                            "3. 소수구하기 \n" +
-                            "4. 윤년/평년 \n" +
-                            "5. 숫자골프 \n");
+                            "0.종료 \n" +
+                            "1.주사위 \n" +
+                            "2.주사위랜덤 \n" +
+                            "3.가위바위보 \n" +
+                            "4.소수구하기 \n" +
+                            "5.윤년/평년 \n" +
+                            "6.숫자골프 \n");
                     switch (scanner.next()) {
                         case "0":
-                            System.out.println("종료");
+                            System.out.println("0.종료");
                             return;
                         case "1":
-                            System.out.println("주사위");
-                            feb07Service.dice(scanner);
+                            System.out.println("1.주사위");
+                            feb07Service.dice();
                             break;
                         case "2":
-                            System.out.println("가위바위보\n 숫자를 입력해주세요. 1.주먹 2.가위 3.보");
-                            feb07Service.rsp(scanner);
+                            System.out.println("2.주사위랜덤");
+                            feb07Service.diceRandom();
                             break;
                         case "3":
-                            System.out.println("소수구하기");
-                            feb07Service.getPrime(scanner);
+                            System.out.println("3.가위바위보");
+                            feb07Service.rsp();
                             break;
                         case "4":
-                            System.out.println("윤년/평년");
-                            feb07Service.leapYear(scanner);
+                            System.out.println("4.소수구하기");
+                            feb07Service.getPrime(scanner);
                             break;
                         case "5":
-                            System.out.println("5.숫자골프");
+                            System.out.println("5.윤년/평년");
+                            feb07Service.leapYear(scanner);
+                            break;
+                        case "6":
+                            System.out.println("6.숫자골프");
                             feb07Service.numberGolf(scanner);
                             break;
                         default:

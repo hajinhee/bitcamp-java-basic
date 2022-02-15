@@ -14,6 +14,7 @@ import java.util.Scanner;
  * 2022-02-08   HAJINHEE    최초 생성
  */
 public class Feb07ServiceImpl implements Feb07Service{
+
     /*
      * 1에서부터 6까지의 눈을 가진 3개의 주사위를 던져서 다음과 같은 규칙에 따라 상금을 받는 게임이 있다.
      *
@@ -25,7 +26,7 @@ public class Feb07ServiceImpl implements Feb07Service{
      * 3개 주사위의 나온 눈이 주어질 때, 상금을 계산하는 프로그램을 작성 하시오.
      */
     @Override
-    public void dice(Scanner scanner) {
+    public void dice() {
         int count = 1;
         while (true){
             int a = (int) (Math.random()*6)+1;
@@ -37,25 +38,35 @@ public class Feb07ServiceImpl implements Feb07Service{
             }
         }
     }
-    @Override
-    public void rsp(Scanner scanner) {
-        int com = (int) (Math.random()*3)+1;    //랜덤함수 이용하여 1~3까지 랜덤 정수 뽑기
-        int user = scanner.nextInt();   //사용자에게 1~3까지 숫자 입력 받기
-        int score = user-com; //같은 숫자를 내면 0으로 무승부, 사용자가 낸 수가 컴퓨터가 낸 수보다 -1이거나 2면 사용자 승, 그 외 패배
-        String[] str = { "", "주먹", "가위", "보"}; //주먹=1, 가위=2, 보=3
-        String res = "";
 
-        if(user==0 || user>3){
-            System.out.println("1~3까지의 숫자를 입력해주세요."); return;
-        }else {
-            if(score==0){
-                res = "무승부";
-            }else if(score==-1 || score==2){
-                res = "사용자 승";
-            }else {
-                res = "컴퓨터 승";}
-        }System.out.println("컴퓨터:" +str[com]+ " 사용자:" +str[user]+ "\n" +res);
+    @Override
+    public void diceRandom() {
+        // 플레이어(랜덤값)와 컴퓨터(랜덤값) 주사위 굴리기를 해 큰 수가 나와 이기면
+        // "You Win", 비기면 "Draw", 지면 "You Lose"를 출력하세요.
+        int com = (int)(Math.random()*6)+1;
+        int user = (int)(Math.random()*6)+1;
+        System.out.println("User Number: " +user);
+        System.out.println("Com Number: " +com);
+        String result = "Draw";  //결과값 default 를 동점으로 설정
+        //유저와 컴퓨터의 랜덤값이 같지 않을 때, 유저의 숫자가 컴퓨터보다 크면 유저 승, 아니면 패
+        if(user!=com) result =(user>com) ? "You Win" : "You Lose";
+        System.out.println(result);   //if 삼항연산자로 간결하게
+        //if( ) res = () ? "참" : "거짓";
+        //res = ( ) ? "참" : "거짓";
+        //return ( ) ? String.format(" ", ) : String.format(" ", );
     }
+
+    @Override
+    public void rsp() {
+        int com = (int) (Math.random()*3)+1;    //랜덤함수 이용하여 1~3까지 랜덤 정수 뽑기
+        int user = (int) (Math.random()*3)+1;
+        int score = user-com; //같은 숫자를 내면 0으로 무승부, 사용자가 낸 수가 컴퓨터가 낸 수보다 -1이거나 2면 사용자 승, 그 외 패배
+        String[] rsps = { "", "주먹", "가위", "보"}; //주먹=1, 가위=2, 보=3
+        String res = "무승부";
+        if(score!=0) res = (score==-1 || score==2) ? "사용자 승" : "컴퓨터 승";
+        System.out.println("컴퓨터:" +rsps[com]+ " 사용자:" +rsps[user]+ "\n" +res);
+        }
+
 
     /*
      * 소수란? 약수가 1과 자기 자신뿐인 수 (1과 자기 자신만으로만 나누어지는 수)
