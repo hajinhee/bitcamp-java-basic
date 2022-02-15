@@ -35,20 +35,9 @@ public class Feb08ServiceImpl implements Feb08Service{
             comNumbers[i] = (int)(Math.random()*45)+1;
             for (int j=0; j<i; j++){               //뽑은 6개 숫자 중 중복 숫자 제거
                 if (comNumbers[i]==comNumbers[j]){
-                    i--; break;
+                    i--;
                 }
             }
-        }
-        for (int i=0; i< comNumbers.length; i++){    //랜덤으로 뽑힌 숫자 오름차순으로 정렬(bubble sort)
-            for (int j=0; j<comNumbers.length-1; j++){
-                if (comNumbers[j]>comNumbers[j+1]){
-                    int temp = comNumbers[j];
-                    comNumbers[j] = comNumbers[j+1];
-                    comNumbers[j+1] = temp;
-                }
-            }
-        }
-        for (int i=0; i<comNumbers.length; i++){
             System.out.print("[" +comNumbers[i]+ "] ");
         }
 
