@@ -227,18 +227,12 @@ public class Feb08ServiceImpl implements Feb08Service{
     public void gugudan(Scanner scanner) {
         for (int i = 2; i < 10; i+=4) {
             for (int j = 1; j < 10; j++) {
-                if (j == 1) {
-                    for (int a = 0; a < 4; a++) {
-                        System.out.print((i + a) + "단 \t");
-                    }
-                    System.out.println();
-                }
-                for(int k = 0; k<4; k++){
-                    System.out.print((i+k)+"X"+j+"="+((i+k)*j)+"\t");
+                for (int k = i; k < i+4; k++) {
+                    System.out.print((k + "*"+j+"="+(k*j)+"\t"));
                 }
                 System.out.println();
-            }
-            System.out.println();
+            }System.out.println();
         }
     }
+
 }

@@ -14,8 +14,8 @@ package com.example.javabasic.quiz.service;
 public class Feb10ServiceImpl implements Feb10Service{
 
 /**
- * 1. 앞에서부터 현재 원소와 바로 다음의 원소를 비교한다.
- * 2. 현재 원소가 다음 원소보다 크면 원소를 교환한다.
+ * 1. 앞에서부터 현재 원소와 바로 다음의 원소의 값을 비교한다.
+ * 2. 현재 원소 값이 다음 원소 값보다 크면 두 값의 자리를 교환한다.(오름차순)
  * 3. 다음 원소로 이동하여 해당 원소와 그 다음원소를 비교한다.
  * */
 
@@ -27,7 +27,7 @@ public class Feb10ServiceImpl implements Feb10Service{
             arr[i]= (int)(Math.random()*100)+1;  //랜덤함수를 이용해 1~100까지의 정수 중 10개를 뽑는다.
             for (int j=0; j<i; j++) {
                 if (arr[i]==arr[j]) {
-                        i--; break;  //숫자가 나오는 순서대로 중복되는 값이 있으면 그 자리에 다시 새로운 값이 들어오도록 한다.
+                        arr[i]--;  //숫자가 나오는 순서대로 중복되는 값이 있으면 그 자리에 다시 새로운 값이 들어오도록 한다.
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class Feb10ServiceImpl implements Feb10Service{
             arr[i]= (int)(Math.random()*100)+1;
             for (int j=0; j<i; j++) {
                 if (arr[i]==arr[j]) {
-                    i--; break;
+                    arr[i]--;
                 }
             }
         }
@@ -91,7 +91,7 @@ public class Feb10ServiceImpl implements Feb10Service{
             arr[i]= (int)(Math.random()*100)+1;
             for (int j=0; j<i; j++) {
                 if (arr[i]==arr[j]) {
-                    i--; break;
+                    arr[i]--;
                 }
             }
         }
@@ -119,8 +119,30 @@ public class Feb10ServiceImpl implements Feb10Service{
 
     }
 
+    /*
+    * 1. 주어진 리스트를 절반으로 분할하여 부분리스트로 나눈다. (Divide : 분할)
+    * 2. 해당 부분리스트의 길이가 1이 아니라면 1번 과정을 되풀이한다.
+    * 3. 인접한 부분리스트끼리 정렬하여 합친다. (Conqure : 정복)
+    * */
     @Override
     public void mergeSort() {
+        int[] arr = new int[10];
+
+        for (int i=0; i<arr.length; i++) {
+            arr[i]= (int)(Math.random()*100)+1;  //랜덤함수를 이용해 1~100까지의 정수 중 10개를 뽑는다.
+            for (int j=0; j<i; j++) {
+                if (arr[i]==arr[j]) {
+                    arr[i]--;  //숫자가 나오는 순서대로 중복되는 값이 있으면 그 자리에 다시 새로운 값이 들어오도록 한다.
+                }
+            }
+        }
+
+        int left = 0;
+        int mid = 0;
+        int right = 0;
+        int l = left;		// 왼쪽 부분리스트 시작점
+        int r = mid + 1;	// 오른쪽 부분리스트의 시작점
+        int idx = left;		// 채워넣을 배열의 인덱스
 
     }
 
